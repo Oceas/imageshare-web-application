@@ -1,0 +1,29 @@
+body {
+    padding-top: 70px;
+    background-color: #15171E;
+}
+
+.navbar-inner {
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.navbar-dark {
+    background-color:rgba(21, 23, 30, .95);
+    color:#FFFFFF;
+    border-color:#000000;
+}
+
+.navbar-dark .navbar-text , a{
+    color:#FFFFFF;
+}
+
+.navbar-dark , a:hover{
+    color: #0097ee;
+    text-decoration:none !important;
+}
+
+.container {
+    height: 50px;
+    width: 100%;
+}
