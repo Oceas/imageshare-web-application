@@ -21,6 +21,19 @@
         };
     });
 
+    app.directive('registerForm', function () {
+        return {
+            restrict: 'E',
+            templateUrl: '../templates/pages/authentication/register.html',
+            controller: function () {
+                this.displayName = "";
+                this.email = "";
+                this.password ="";
+            },
+            controllerAs: 'register'
+        };
+    });
+
     app.controller("AuthenticationController", function ($http) {
 
         this.login = function () {
