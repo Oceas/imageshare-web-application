@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="imageshare">
 <head>
+    <title>Angular Store</title>
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="frameworks/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <title>Angular Store</title>
     <script type="text/javascript" src="frameworks/angular/angular.min.js"></script>
+    <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="frameworks/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="javascript/app.js"></script>
+
+
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>-->
 </head>
 <body>
+
 <nav class="navbar navbar-default navbar-dark navbar-fixed-top">
     <div class="container navbar-inner">
         <p class="navbar-text navbar-left">IMAGESHARE</p>
         <p class="navbar-text navbar-right"><a href="#">Oceas</a></p>
     </div>
 </nav>
+
+<div ng-controller="PeopleController as PeopleCtl">
+    {{PeopleCtl.name}}
+    <ul>
+        <li ng-repeat="person in persons">
+            {{person.Name}} : {{person.Age}}
+        </li>
+    </ul>
+</div>
+<div ng-controller="AuthenticationController as Auth">
+    <input type="button" value="Login" ng-click="Auth.login()"/>
+</div>
+
+
 </body>
 </html>
