@@ -6,7 +6,8 @@
     <link rel="stylesheet" type="text/css" href="frameworks/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
     <script type="text/javascript" src="frameworks/angular/angular.min.js"></script>
-    <script type="text/javascript" src="app.js"></script>
+    <script type="text/javascript" src="modules/app.js"></script>
+    <script type="text/javascript" src="modules/authentication.js"></script>
     <script type="text/javascript" src="frameworks/bootstrap/js/bootstrap.min.js"></script>
 
 
@@ -17,22 +18,11 @@
 <nav class="navbar navbar-default navbar-dark navbar-fixed-top">
     <div class="container navbar-inner">
         <p class="navbar-text navbar-left">IMAGESHARE</p>
-        <p class="navbar-text navbar-right"><a href="#">Oceas</a></p>
+        <p class="navbar-text navbar-right"><a href="#">Sign In</a></p>
     </div>
 </nav>
-
-<div ng-controller="PeopleController as PeopleCtl">
-    {{PeopleCtl.name}}
-    <ul>
-        <li ng-repeat="person in persons">
-            {{person.Name}} : {{person.Age}}
-        </li>
-    </ul>
+<div class="body-inner">
+    <login-form></login-form>
 </div>
-<div ng-controller="AuthenticationController as Auth">
-    <input type="button" value="Login" ng-click="Auth.login()"/>
-</div>
-
-
 </body>
 </html>

@@ -6,18 +6,19 @@
  functions and values */
 
 (function () {
-    var app = angular.module('imageshare', []);
+    var app = angular.module('user-authentication', []);
 
 
-    app.controller('PeopleController', function ($scope, $http) {
-        this.name = "Bob";
-        $http.post('http://192.168.33.22/testing.json').success(function (response) {
-            $scope.persons = response.records;
-        });
-    });
-
-    app.controller("TestingController", function () {
-        this.name = "Bob";
+    app.directive('loginForm', function () {
+        return {
+            restrict: 'E',
+            templateUrl: '../templates/pages/authentication/login.html',
+            controller: function () {
+               this.email = "";
+               this.password ="";
+            },
+            controllerAs: 'login'
+        };
     });
 
     app.controller("AuthenticationController", function ($http) {
@@ -38,7 +39,6 @@
             });
         };
     });
-
 
 })();
 
