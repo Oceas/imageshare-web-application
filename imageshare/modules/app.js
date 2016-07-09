@@ -12,30 +12,43 @@
         $routeProvider
         // route for the home page
             .when('/', {
-                templateUrl : '../pages/home.html',
+                templateUrl : '../partials/pages/home.html',
                 controller  : 'mainController'
             })
 
             // route for the login page
             .when('/login', {
-                templateUrl : '../pages/login.html',
+                templateUrl : '../partials/pages/login.html',
                 controller  : 'loginController'
             })
 
             // route for the register page
             .when('/register', {
-                templateUrl : '../pages/register.html',
+                templateUrl : '../partials/pages/register.html',
                 controller  : 'registerController'
+            })
+
+            // route for user logging out
+            .when('/logout', {
+                templateUrl : '../partials/pages/logout.html',
+                controller  : 'logOutController'
             });
+    });
+
+    imageshare.directive('navigationMenu', function () {
+        return {
+            restrict: 'E',
+            templateUrl: '../partials/navigation/menu.html',
+            controller : 'navigationController'
+        };
     });
 
     imageshare.controller('mainController', function($scope) {
         // create a message to display in our view
-        $scope.message = 'Everyone come and see how good I look!';
+        $scope.message = 'Welcome to Imageshare the best story telling platform!';
     });
 
     imageshare.controller('loginController', function($scope,$http) {
-        $scope.message = 'Look! I am an about page.';
 
         $scope.login = function () {
             // use $.param jQuery function to serialize data from JSON
@@ -66,7 +79,11 @@
     });
 
     imageshare.controller('registerController', function($scope) {
-        $scope.message = 'Contact us! JK. This is just a demo.';
+
+    });
+
+    imageshare.controller('logOutController', function($scope) {
+        $scope.message = 'You are now logged out!';
     });
 
     imageshare.controller('navigationController', function($scope){
