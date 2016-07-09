@@ -1,28 +1,43 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en" ng-app="imageshare">
+
+<!-- define angular app -->
+<html ng-app="imageshare">
 <head>
-    <title>Angular Store</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="frameworks/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="css/style.css"/>
-    <script type="text/javascript" src="frameworks/angular/angular.min.js"></script>
-    <script type="text/javascript" src="modules/app.js"></script>
-    <script type="text/javascript" src="modules/authentication.js"></script>
-    <script type="text/javascript" src="frameworks/bootstrap/js/bootstrap.min.js"></script>
+    <!-- SCROLLS -->
+    <!-- load bootstrap and fontawesome via CDN -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css" />
 
-
-    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.7/angular.min.js"></script>-->
+    <!-- SPELLS -->
+    <!-- load angular via CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="app.js"></script>
 </head>
-<body>
 
-<nav class="navbar navbar-default navbar-dark navbar-fixed-top">
-    <div class="container navbar-inner">
-        <p class="navbar-text navbar-left">IMAGESHARE</p>
-        <p class="navbar-text navbar-right"><a href="#">Sign In</a></p>
-    </div>
-</nav>
-<div class="body-inner">
-    <register-form></register-form>
+<!-- define angular controller -->
+<body ng-controller="mainController">
+
+<header>
+    <nav class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="/">Imageshare</a>
+            </div>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                <li><a href="#login"><i class="fa fa-shield"></i> Login</a></li>
+                <li><a href="#register"><i class="fa fa-comment"></i> Register</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+
+<!-- MAIN CONTENT AND INJECTED VIEWS -->
+<div id="main">
+    <div ng-view></div>
 </div>
 </body>
-</html>
