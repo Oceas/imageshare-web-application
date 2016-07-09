@@ -6,25 +6,25 @@
  functions and values */
 
 (function () {
-    var imageshare = angular.module('imageshare', ['ngRoute']);
+    var imageshare = angular.module('imageshare', ['ngRoute','authenticationServices']);
 
     imageshare.config(function($routeProvider) {
         $routeProvider
         // route for the home page
             .when('/', {
-                templateUrl : 'pages/home.html',
+                templateUrl : '../pages/home.html',
                 controller  : 'mainController'
             })
 
             // route for the login page
             .when('/login', {
-                templateUrl : 'pages/login.html',
+                templateUrl : '../pages/login.html',
                 controller  : 'loginController'
             })
 
             // route for the register page
             .when('/register', {
-                templateUrl : 'pages/register.html',
+                templateUrl : '../pages/register.html',
                 controller  : 'registerController'
             });
     });
