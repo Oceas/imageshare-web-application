@@ -1,6 +1,6 @@
 var imageShareAuthenticationServices = angular.module('authenticationServices',['ngCookies']);
 
-imageShareAuthenticationServices.factory('checkCreds',
+imageShareAuthenticationServices.factory('loggedIn',
     ['$cookies', function($cookies){
         return function(){
             var returnVal = false;

@@ -35,6 +35,21 @@
             });
     });
 
+    imageshare.run(['$rootScope', '$location', 'loggedIn' , function ($rootScope, $location, loggedIn) {
+        $rootScope.$on('$routeChangeStart', function () {
+            if($location.$$path !== "/login" && $location.$$path !== "/"){
+                console.log("Route change!");
+                if(loggedIn()){
+                    //Let the route complete
+                }else{
+                    //Override route to Log In Page
+                    console.log("Please Log In!");
+                    $location.path('/login');
+                }
+            }
+        });
+    }]);
+
     imageshare.directive('navigationMenu', function () {
         return {
             restrict: 'E',
