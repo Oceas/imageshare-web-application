@@ -58,12 +58,14 @@
         };
     });
 
-    imageshare.controller('mainController', function ($scope) {
+    imageshare.controller('mainController', ['getUsername','$scope', function (getUsername,$scope) {
         // create a message to display in our view
-
+        if(getUsername !== undefined){
+            $scope.username = getUsername();
+        }
         $scope.message = 'Welcome to Imageshare the best story telling platform!';
 
-    });
+    }]);
 
     imageshare.controller('loginController',['$scope','$http','setCredentials', function ($scope, $http,setCredentials) {
 
@@ -85,7 +87,7 @@
                     if (data.error) {
                         alert(data.message);
                     } else {
-                        setCredentials($scope.email, $scope.password);
+                        setCredentials($scope.email, $scope.password, data.uid, data.user.name);
                         console.log("Credentials set!");
                     }
                     console.log(data);
