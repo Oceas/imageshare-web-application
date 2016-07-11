@@ -4,12 +4,11 @@
             <div class="navbar-header">
                 <a class="navbar-brand" href="/">Imageshare</a>
             </div>
-
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <li><a href="#login"><i class="fa fa-sign-in"></i> Login</a></li>
-                <li><a href="#register"><i class="fa fa-magic"></i> Register</a></li>
-                <li><a href="#logout"><i class="fa fa-sign-out"></i> Logout</a></li>
+                <li ng-class="{hidden: loggedIn}"><a href="#login"><i class="fa fa-sign-in"></i> Login</a></li>
+                <li ng-class="{hidden: loggedIn}"><a href="#register"><i class="fa fa-magic"></i> Register</a></li>
+                <li ng-class="{hidden: loggedOut}"><a href="#logout"><i class="fa fa-sign-out" ></i> Logout</a></li>
             </ul>
         </div>
     </nav>

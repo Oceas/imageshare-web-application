@@ -36,7 +36,7 @@ imageShareAuthenticationServices.factory('getUsername',
         };
     }]);
 
-imageShareAuthenticationServices.factory('setCreds',
+imageShareAuthenticationServices.factory('setCredentials',
     ['$cookies', function($cookies){
         return function(un,pw){
             var token = un.concat(":",pw);
@@ -45,7 +45,7 @@ imageShareAuthenticationServices.factory('setCreds',
         };
     }]);
 
-imageShareAuthenticationServices.factory('detleteCreds',
+imageShareAuthenticationServices.factory('deleteCredentials',
     ['$cookies', function($cookies){
         return function(){
             $cookies.userCreds = "";

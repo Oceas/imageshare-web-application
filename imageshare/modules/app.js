@@ -37,7 +37,7 @@
 
     imageshare.run(['$rootScope', '$location', 'loggedIn' , function ($rootScope, $location, loggedIn) {
         $rootScope.$on('$routeChangeStart', function () {
-            if($location.$$path !== "/login" && $location.$$path !== "/"){
+            if($location.$$path !== "/login" && $location.$$path !== "/" && $location.$$path !== "/logout"){
                 console.log("Route change!");
                 if(loggedIn()){
                     //Let the route complete
@@ -65,7 +65,7 @@
 
     });
 
-    imageshare.controller('loginController', function ($scope, $http) {
+    imageshare.controller('loginController',['$scope','$http','setCredentials', function ($scope, $http,setCredentials) {
 
         $scope.login = function () {
             // use $.param jQuery function to serialize data from JSON
@@ -85,25 +85,32 @@
                     if (data.error) {
                         alert(data.message);
                     } else {
-
+                        setCredentials($scope.email, $scope.password);
+                        console.log("Credentials set!");
                     }
                     console.log(data);
                 })
                 .error(function (data, status, header, config) {
+
                 });
         };
 
-    });
+    }]);
 
     imageshare.controller('registerController', function ($scope) {
 
     });
 
-    imageshare.controller('logOutController', function ($scope) {
+    imageshare.controller('logOutController',['$scope','deleteCredentials', function ($scope,deleteCredentials) {
         $scope.message = 'You are now logged out!';
-    });
+        deleteCredentials();
+    }]);
 
-    imageshare.controller('navigationController', function () {
-    });
+    imageshare.controller('navigationController',['$rootScope','loggedIn', function ($rootScope,loggedIn) {
+
+        $rootScope.loggedIn = loggedIn();
+        $rootScope.loggedOut = !loggedIn();
+
+    }]);
 
 })();
