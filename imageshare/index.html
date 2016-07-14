@@ -1,14 +1,34 @@
+<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en" ng-app="imageshare">
+
+<!-- define angular app -->
+<html ng-app="imageshare">
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="frameworks/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="stylesheets/style.css"/>
-    <title>Angular Store</title>
-    <script type="text/javascript" src="frameworks/angular/angular.min.js"></script>
-    <script type="text/javascript" src="javascript/app.js"></script>
+    <!-- load bootstrap, jQuerry,and fontawesome via CDN -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+
+    <!-- load angular via CDN -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-cookies.js"></script>
+
+    <!-- load  custom modules -->
+    <script src="modules/app.js"></script>
+    <script src="modules/authentication.js"></script>
+
+    <!-- load custom css -->
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
 </head>
-<body>
-  First line of imageshare
+
+<!-- define angular controller -->
+<body ng-controller="mainController">
+
+<navigation-menu></navigation-menu>
+<!-- MAIN CONTENT AND INJECTED VIEWS -->
+<div id="main">
+    <div ng-view></div>
+</div>
 </body>
-</html>
