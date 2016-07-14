@@ -37,7 +37,7 @@
 
     imageshare.run(['$rootScope', '$location', 'loggedIn' , function ($rootScope, $location, loggedIn) {
         $rootScope.$on('$routeChangeStart', function () {
-            if($location.$$path !== "/login" && $location.$$path !== "/" && $location.$$path !== "/logout"){
+            if($location.$$path !== "/login" && $location.$$path !== "/" && $location.$$path !== "/logout" && $location.$$path !== "/register"){
                 console.log("Route change!");
                 if(loggedIn()){
                     //Let the route complete
@@ -58,16 +58,16 @@
         };
     });
 
-    imageshare.controller('mainController', ['getUsername','$scope', function (getUsername,$scope) {
+    imageshare.controller('mainController', ['updateSystemSettings','getUsername','$scope', function (updateSystemSettings,getUsername,$scope) {
         // create a message to display in our view
         if(getUsername !== undefined){
             $scope.username = getUsername();
         }
+        updateSystemSettings();
         $scope.message = 'Welcome to Imageshare the best story telling platform!';
-
     }]);
 
-    imageshare.controller('loginController',['$scope','$http','setCredentials', function ($scope, $http,setCredentials) {
+    imageshare.controller('loginController',['$rootScope','$scope','$http','setCredentials','loggedIn','$window', function ($rootScope,$scope, $http,setCredentials,loggedIn,$window) {
 
         $scope.login = function () {
             // use $.param jQuery function to serialize data from JSON
@@ -88,6 +88,9 @@
                         alert(data.message);
                     } else {
                         setCredentials($scope.email, $scope.password, data.uid, data.user.name);
+                        $rootScope.loggedIn = loggedIn();
+                        $rootScope.loggedOut = !loggedIn();
+                        $window.location.href = '#/';
                         console.log("Credentials set!");
                     }
                     console.log(data);
@@ -108,10 +111,7 @@
         deleteCredentials();
     }]);
 
-    imageshare.controller('navigationController',['$rootScope','loggedIn', function ($rootScope,loggedIn) {
-
-        $rootScope.loggedIn = loggedIn();
-        $rootScope.loggedOut = !loggedIn();
+    imageshare.controller('navigationController',['$rootScope','loggedIn' , function ($rootScope,loggedIn) {
 
     }]);
 
