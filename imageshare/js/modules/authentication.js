@@ -36,6 +36,18 @@ imageShareAuthenticationServices.factory('getUsername',
         };
     }]);
 
+imageShareAuthenticationServices.factory('getUID',
+    ['$cookies', function($cookies){
+        return function(){
+            var returnVal = "";
+            var uid = $cookies.uid;
+            if (uid !== undefined && uid !== ""){
+                returnVal = uid;
+            }
+            return returnVal;
+        };
+    }]);
+
 imageShareAuthenticationServices.factory('setCredentials',
     ['$cookies','updateSystemSettings', function($cookies,updateSystemSettings){
         return function(email,pw,uid,username){
@@ -60,9 +72,12 @@ imageShareAuthenticationServices.factory('deleteCredentials',
     }]);
 
 imageShareAuthenticationServices.factory('updateSystemSettings',
-    ['$rootScope','loggedIn',function($rootScope,loggedIn){
+    ['$rootScope','loggedIn','getUID',function($rootScope,loggedIn,getUID){
         return function(){
             $rootScope.loggedIn = loggedIn();
             $rootScope.loggedOut = !loggedIn();
+            $rootScope.uid = getUID();
         };
     }]);
+
+
