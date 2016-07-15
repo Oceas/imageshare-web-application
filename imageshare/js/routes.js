@@ -6,6 +6,12 @@ angular.module('imageshare').config(function ($routeProvider) {
             controller: 'mainController'
         })
 
+        //route for you display page
+        .when('/you', {
+            templateUrl: '../../partials/pages/you.html',
+            controller: 'youController'
+        })
+
         // route for the login page
         .when('/login', {
             templateUrl: '../../partials/pages/login.html',
