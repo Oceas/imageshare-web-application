@@ -1,11 +1,11 @@
 <header>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-inverse">
         <div class="container">
             <div class="navbar-header">
                 <a class="navbar-brand" href="#">Imageshare</a>
             </div>
             <ul class="nav navbar-nav navbar-left">
-                <li  ng-hide="loggedOut"><a href="#you"> You</a></li>
+                <li  ng-hide="loggedOut"><a href="#you"> {{username}}</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li ng-hide="loggedIn"><a href="#login"> Login</a></li>

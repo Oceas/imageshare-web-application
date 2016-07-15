@@ -72,11 +72,12 @@ imageShareAuthenticationServices.factory('deleteCredentials',
     }]);
 
 imageShareAuthenticationServices.factory('updateSystemSettings',
-    ['$rootScope','loggedIn','getUID',function($rootScope,loggedIn,getUID){
+    ['$rootScope','loggedIn','getUID','getUsername',function($rootScope,loggedIn,getUID,getUsername){
         return function(){
             $rootScope.loggedIn = loggedIn();
             $rootScope.loggedOut = !loggedIn();
             $rootScope.uid = getUID();
+            $rootScope.username = getUsername();
         };
     }]);
 

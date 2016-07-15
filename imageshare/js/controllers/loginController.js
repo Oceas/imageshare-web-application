@@ -19,11 +19,8 @@ angular.module('imageshare').controller('logInController', ['$rootScope', '$scop
                     alert(data.message);
                 } else {
                     setCredentials($scope.email, $scope.password, data.uid, data.user.name);
-                    console.log("Credentials set!");
-                    $window.location.href = '#/';
-
+                    $window.location.href = '#/you';
                 }
-                console.log(data);
             })
             .error(function (data, status, header, config) {
 

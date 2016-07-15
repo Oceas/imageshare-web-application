@@ -1,0 +1,13 @@
+body{
+    background-color: #15171E;
+}
+
+.jumbotron, .storyContainer{
+    background-color: #222222;
+    color: #999;
+}
+
+.storyContainer{
+    color:#999;
+    background-color: #222222;
+}
