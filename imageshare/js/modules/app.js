@@ -11,13 +11,10 @@
     imageshare.run(['$rootScope', '$location', 'loggedIn', function ($rootScope, $location, loggedIn) {
         $rootScope.$on('$routeChangeStart', function () {
             if ($location.$$path !== "/login" && $location.$$path !== "/" && $location.$$path !== "/logout" && $location.$$path !== "/register") {
-                console.log("Route change!");
                 if (loggedIn()) {
-                    console.log("Logged in?");
                     //Let the route complete
                 } else {
                     //Override route to Log In Page
-                    console.log("Please Log In!");
                     $location.path('/login');
                 }
             }

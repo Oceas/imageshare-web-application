@@ -1,3 +1,57 @@
-angular.module('imageshare').controller('momentsController', ['$scope', function ($scope) {
-    $scope.message = 'Profile Thread!';
+angular.module('imageshare').controller('momentsController', ['$rootScope','$scope','$http', function ($rootScope, $scope, $http) {
+    $scope.moments = {};
+
+    var loadMoments = function() {
+        var data = $.param({
+            userId: $rootScope.uid,
+        });
+
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        };
+        $http.post('http://imageshare.io/api/getalbums.php', data, config)
+            .success(function (data) {
+                if (data.error) {
+                    alert(data.message);
+                } else {
+                    $scope.moments = data.albums;
+                    $scope.moments.forEach(loadPhotos);
+                }
+            })
+            .error(function () {
+
+            });
+    };
+
+    var loadPhotos = function(moment, index) {
+        var data = $.param({
+            userId: $rootScope.uid,
+            albumId: moment.albumId
+        });
+
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        };
+        $http.post('http://imageshare.io/api/getalbumdetail.php', data, config)
+            .success(function (data) {
+                if (data.error) {
+                    alert(data.message);
+                } else {
+                    $scope.moments[index].images = data.album.images;
+                    console.log("Loaded photos for " + moment.albumName);
+                }
+                console.log(data);
+            })
+            .error(function () {
+                console.log("ERROR!");
+            });
+    };
+
+    loadMoments();
+
+
 }]);
