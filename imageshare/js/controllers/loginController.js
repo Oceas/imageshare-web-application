@@ -19,8 +19,6 @@ angular.module('imageshare').controller('logInController', ['$rootScope', '$scop
                     alert(data.message);
                 } else {
                     setCredentials($scope.email, $scope.password, data.uid, data.user.name);
-                    $rootScope.loggedIn = loggedIn();
-                    $rootScope.loggedOut = !loggedIn();
                     console.log("Credentials set!");
                     $window.location.href = '#/';
 
