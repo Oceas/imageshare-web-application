@@ -28,5 +28,11 @@ angular.module('imageshare').config(function ($routeProvider) {
         .when('/logout', {
             templateUrl: '../../partials/pages/logout.html',
             controller: 'logOutController'
+        })
+
+        .when('/account-information', {
+            templateUrl: '../../partials/pages/user/information.html',
+            controller: 'accountController'
         });
+
 });
