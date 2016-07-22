@@ -1,0 +1,7 @@
+<div class="row" ng-repeat="moment in moments">
+    <div class="col-sm-6 col-md-6 " ng-repeat="photo in moment.photos">
+        <div class="thumbnail storyContainer">
+            <img style="width:100%;" src="{{photo.imageLocation}}" alt="...">
+        </div>
+    </div>
+</div>
