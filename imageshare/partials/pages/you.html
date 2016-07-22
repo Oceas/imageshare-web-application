@@ -2,15 +2,18 @@
     <h1><a href="#account-information">{{ username }}</a></h1>
     <div class="btn-group" role="group">
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default" ng-click="setSelected(0)" ng-class="{'selected': isSelected(0)}">Stories</button>
+            <button type="button" class="btn btn-default" ng-click="setSelected('stories')" ng-class="{'selected': isSelected('stories')}">Stories</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default" ng-click="setSelected(1)" ng-class="{'selected': isSelected(1)}">Moments</button>
+            <button type="button" class="btn btn-default" ng-click="setSelected('moments')" ng-class="{'selected': isSelected('moments')}">Moments</button>
         </div>
         <div class="btn-group" role="group">
-            <button type="button" class="btn btn-default" ng-click="setSelected(2)" ng-class="{'selected': isSelected(2)}">Photos</button>
+            <button  type="button" class="btn btn-default" ng-click="setSelected('photos')" ng-class="{'selected': isSelected('photos')}">Photos</button>
         </div>
     </div>
 </div>
-
-<moments-roll></moments-roll>
+<div ng-switch on="selection">
+    <div ng-switch-when="stories">StoryView</div>
+    <moments-roll ng-switch-when="moments"></moments-roll>
+    <div ng-switch-when="photos">PhotoView</div>
+</div>
