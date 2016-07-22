@@ -13,7 +13,7 @@ angular.module('imageshare').controller('registrationController', ['$http','$sco
             }
         };
 
-        $http.post('http://imageshare.io/api/register.php', data, config)
+        $http.post('http://imageshare.io/api/v1/register.php', data, config)
             .success(function (data) {
 
                 if (data.error) {

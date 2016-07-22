@@ -13,7 +13,7 @@ angular.module('imageshare').controller('logInController', ['$rootScope', '$scop
             }
         }
 
-        $http.post('http://imageshare.io/api/login.php', data, config)
+        $http.post('http://imageshare.io/api/v1/login.php', data, config)
             .success(function (data) {
                 if (data.error) {
                     alert(data.message);

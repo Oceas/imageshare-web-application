@@ -11,10 +11,10 @@ angular.module('imageshare').controller('momentsController', ['$rootScope','$sco
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         };
-        $http.post('http://imageshare.io/api/getalbums.php', data, config)
+        $http.post('http://imageshare.io/api/v1/getalbums.php', data, config)
             .success(function (data) {
                 if (data.error) {
-                    alert(data.message);
+                    alert("Moments: " + data.message);
                 } else {
                     $scope.moments = data.albums;
                     $scope.moments.forEach(loadPhotos);
@@ -36,7 +36,7 @@ angular.module('imageshare').controller('momentsController', ['$rootScope','$sco
                 'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
             }
         };
-        $http.post('http://imageshare.io/api/getalbumdetail.php', data, config)
+        $http.post('http://imageshare.io/api/v1/getalbumdetail.php', data, config)
             .success(function (data) {
                 if (data.error) {
                     alert(data.message);
