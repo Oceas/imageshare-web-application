@@ -1,7 +1,7 @@
 angular.module('imageshare').controller('youController', ['$scope',function ($scope) {
 
     //default view to moments
-    $scope.selection = "moments";
+    $scope.selection = "stories";
 
     $scope.setSelected = function(view){
         $scope.selection = view;
