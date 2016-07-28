@@ -53,5 +53,59 @@ angular.module('imageshare').controller('photosController', ['$rootScope','$scop
 
     loadMoments();
 
+    // $scope.upload = function(){
+    //     var data = $.param({
+    //         userId: $rootScope.uid,
+    //         albumId: "24",
+    //         "fileToUpload[]": $scope.photoFile;
+    //     });
+    //
+    //     var config = {
+    //         headers: {
+    //             'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+    //         }
+    //     };
+    //     $http.post('http://imageshare.io/api/v1/uploadimage.php', data, config)
+    //         .success(function (data) {
+    //             if (data.error) {
+    //                 alert("Photo: " + data.message);
+    //             } else {
+    //                alert("Success");
+    //             }
+    //         })
+    //         .error(function () {
+    //
+    //         });
+    // };
+
+    $scope.filesChanged = function (element){
+        $scope.file = element.files[0];
+        $scope.$apply();
+        console.log($scope.file);
+    };
+
+    $scope.upload = function(){
+
+        var data = new FormData();
+        data.append('userId', "3");
+        data.append('albumId',"24");
+        data.append('fileToUpload[]',$scope.file);
+
+        var config = {
+            transformRequest:angular.identity,
+            headers: {
+                'Content-Type': undefined
+            }
+        };
+        $http.post('http://imageshare.io/api/v1/uploadimage.php',data,config).success(function (data) {
+            if (data.error) {
+                alert("Photo: " + data.message);
+            } else {
+                alert("Successfully uploaded!");
+            }
+        }).error(function () {
+
+        });
+    }
 
 }]);
