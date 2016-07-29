@@ -1,7 +1,7 @@
 angular.module('imageshare').directive('storiesRoll', function () {
     return {
         restrict: 'E',
-        templateUrl: '../../partials/pages/storiesRoll/index.html',
+        templateUrl: '../../partials/pages/stories/index.html',
         controller: 'storiesController'
     };
 });

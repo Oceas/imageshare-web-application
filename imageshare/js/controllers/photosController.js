@@ -58,7 +58,6 @@ angular.module('imageshare').controller('photosController', ['$rootScope','$scop
     $scope.filesChanged = function (element){
         $scope.file = element.files[0];
         $scope.$apply();
-        console.log($scope.file);
     };
 
     $scope.upload = function(){
