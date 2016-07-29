@@ -1,15 +1,19 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/css/bootstrap-select.min.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.10.0/js/bootstrap-select.min.js"></script>
 <div class="jumbotron text-center">
     <h1>Photo Upload</h1>
     <form name="uploadForm" ng-submit="uploadForm.$valid && upload()" novalidate>
         <div class="form-group">
+            <label for="momentSelection">Upload to This Moment</label>
+            <select class="form-control" name="singleSelect" id="momentSelection" ng-model="momentSelection">
+                <option value="">---Please select---</option> <!-- not selected / blank option -->
+                <option ng-repeat="moment in moments" value="{{moment.albumId}}">{{moment.albumName}}</option> <!-- interpolation -->
+            </select>
+        </div>
+        <div class="form-group">
             <label for="photoFile">Photo to Upload</label>
-
             <input  type="file" class="form-control" id="photoFile"
                    onchange="angular.element(this).scope().filesChanged(this)" >
-        Test {{file.name}}
-
-
-
         </div>
         <div class="form-group">
             <label for="photoCaption">Photo Caption</label>
@@ -27,7 +31,6 @@
     </form>
 
 </div>
-
 
 <!--view all photos-->
 <div class="row" ng-repeat="moment in moments">

@@ -42,9 +42,7 @@ angular.module('imageshare').controller('momentsController', ['$rootScope','$sco
                     alert(data.message);
                 } else {
                     $scope.moments[index].images = data.album.images;
-                    console.log("Loaded photos for " + moment.albumName);
                 }
-                console.log(data);
             })
             .error(function () {
                 console.log("ERROR!");

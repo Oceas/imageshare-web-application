@@ -19,10 +19,6 @@ angular.module('imageshare').controller('storiesController', ['$rootScope','$sco
                 } else {
                     $scope.stories = data.stories;
                     $scope.stories.forEach(loadMoments);
-                    console.log("Loading Stories");
-                    console.log(data);
-                    // $scope. = data.albums;
-                    // $scope.moments.forEach(loadPhotos);
                 }
             })
             .error(function () {
@@ -49,10 +45,9 @@ angular.module('imageshare').controller('storiesController', ['$rootScope','$sco
                 } else {
                     $scope.stories[index].moments = data.moments;
                 }
-                console.log(data);
             })
             .error(function () {
-                console.log("ERROR!");
+
             });
     };
 
@@ -74,9 +69,7 @@ angular.module('imageshare').controller('storiesController', ['$rootScope','$sco
                     alert(data.message);
                 } else {
                     $scope.moments[index].images = data.album.images;
-                    console.log("Loaded photos for " + moment.albumName);
                 }
-                console.log(data);
             })
             .error(function () {
                 console.log("ERROR!");

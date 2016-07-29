@@ -16,6 +16,7 @@ angular.module('imageshare').controller('photosController', ['$rootScope','$scop
                 if (data.error) {
                     alert("Moments: " + data.message);
                 } else {
+                    console.log(data.albums);
                     $scope.moments = data.albums;
                     $scope.moments.forEach(loadPhotos);
                 }
@@ -41,6 +42,7 @@ angular.module('imageshare').controller('photosController', ['$rootScope','$scop
                 if (data.error) {
                     alert(data.message);
                 } else {
+                    console.log(data.album.images);
                     $scope.moments[index].photos = data.album.images;
                     console.log("Loaded photos for " + moment.albumName);
                 }
@@ -53,31 +55,6 @@ angular.module('imageshare').controller('photosController', ['$rootScope','$scop
 
     loadMoments();
 
-    // $scope.upload = function(){
-    //     var data = $.param({
-    //         userId: $rootScope.uid,
-    //         albumId: "24",
-    //         "fileToUpload[]": $scope.photoFile;
-    //     });
-    //
-    //     var config = {
-    //         headers: {
-    //             'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-    //         }
-    //     };
-    //     $http.post('http://imageshare.io/api/v1/uploadimage.php', data, config)
-    //         .success(function (data) {
-    //             if (data.error) {
-    //                 alert("Photo: " + data.message);
-    //             } else {
-    //                alert("Success");
-    //             }
-    //         })
-    //         .error(function () {
-    //
-    //         });
-    // };
-
     $scope.filesChanged = function (element){
         $scope.file = element.files[0];
         $scope.$apply();
@@ -85,10 +62,9 @@ angular.module('imageshare').controller('photosController', ['$rootScope','$scop
     };
 
     $scope.upload = function(){
-
         var data = new FormData();
-        data.append('userId', "3");
-        data.append('albumId',"24");
+        data.append('userId', $rootScope.uid);
+        data.append('albumId', $scope.momentSelection);
         data.append('fileToUpload[]',$scope.file);
 
         var config = {
@@ -100,7 +76,9 @@ angular.module('imageshare').controller('photosController', ['$rootScope','$scop
         $http.post('http://imageshare.io/api/v1/uploadimage.php',data,config).success(function (data) {
             if (data.error) {
                 alert("Photo: " + data.message);
+                console.log(data);
             } else {
+                console.log(data);
                 alert("Successfully uploaded!");
             }
         }).error(function () {
