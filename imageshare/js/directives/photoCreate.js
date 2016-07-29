@@ -1,7 +1,7 @@
 angular.module('imageshare').directive('photoUpload', function () {
     return {
         restrict: 'E',
-        templateUrl: '../../partials/pages/photos/upload.html',
+        templateUrl: '../../partials/pages/photos/create.html',
         controller: 'photosController'
     };
 });

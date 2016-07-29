@@ -1,0 +1,30 @@
+<div class="jumbotron text-center">
+    <h1>Create a Moment</h1>
+    <form name="uploadForm" ng-submit="uploadForm.$valid && upload()" novalidate>
+        <div class="form-group">
+            <label for="momentSelection">Create A Moment for this Story</label>
+            <select class="form-control" name="singleSelect" id="momentSelection" ng-model="momentSelection">
+                <option value="">---Please select---</option> <!-- not selected / blank option -->
+                <option ng-repeat="moment in moments" value="{{moment.albumId}}">{{moment.albumName}}</option> <!-- interpolation -->
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="photoFile">Photo to Upload</label>
+            <input  type="file" class="form-control" id="photoFile"
+                    onchange="angular.element(this).scope().filesChanged(this)" >
+        </div>
+        <div class="form-group">
+            <label for="photoCaption">Photo Caption</label>
+            <input ng-model="photoCaption" type="text" class="form-control" id="photoCaption" placeholder="Field of Flowers" required>
+        </div>
+        <div class="form-group">
+            <label for="photoDescription">Photo Description</label>
+            <input ng-model="photoDescription" type="text" class="form-control" id="photoDescription" placeholder="Field of Flowers with extreme zoom" required>
+        </div>
+        <div class="form-group">
+            <label for="photoLocation">Photo Location</label>
+            <input ng-model="photoLocation" type="text" class="form-control" id="photoLocation" placeholder="Location" required>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>
