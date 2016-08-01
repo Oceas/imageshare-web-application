@@ -1,6 +1,6 @@
 <div class="jumbotron text-center">
     <h1>Photo Upload</h1>
-    <form name="uploadForm" ng-submit="uploadForm.$valid && upload()" novalidate>
+    <form name="uploadForm" ng-submit="uploadForm.$valid && uploadPhoto()" novalidate>
         <div class="form-group">
             <label for="momentSelection">Upload to This Moment</label>
             <select class="form-control" name="singleSelect" id="momentSelection" ng-model="momentSelection">
