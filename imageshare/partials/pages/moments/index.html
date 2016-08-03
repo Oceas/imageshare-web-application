@@ -1,12 +1,4 @@
 <div ng-switch on="mode">
     <moment-create ng-switch-when="create"></moment-create>
-    <div class="row"  ng-switch-when="view">
-        <div class="col-sm-6 col-md-6 " ng-repeat="moment in moments">
-            <div class="thumbnail storyContainer">
-                <h3 class="text-center">{{moment.albumName}}</h3>
-                <p class="text-center">{{moment.albumDesc}}</p>
-                <img style="width:100%;" src="{{moment.images[0].imageLocation}}" alt="...">
-            </div>
-        </div>
-    </div>
+    <moment-roll-view ng-switch-when="view"></moment-roll-view>
 </div>
