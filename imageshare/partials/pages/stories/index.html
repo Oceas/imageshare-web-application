@@ -1,12 +1,4 @@
 <div ng-switch on="mode">
     <story-create ng-switch-when="create"></story-create>
-    <div class="row" ng-switch-when="view">
-        <div class="col-sm-6 col-md-6 " ng-repeat="story in stories">
-            <div class="thumbnail storyContainer">
-                <h3 class="text-center">{{story.storyName}}</h3>
-                <p class="text-center">{{story.storyDesc}}</p>
-                <!--<img style="width:100%;" src="{{moment.images[0].imageLocation}}" alt="...">-->
-            </div>
-        </div>
-    </div>
+    <story-roll-view ng-switch-when="view"></story-roll-view>
 </div>
