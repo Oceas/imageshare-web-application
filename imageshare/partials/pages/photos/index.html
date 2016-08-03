@@ -1,16 +1,4 @@
 <div ng-switch on="mode">
     <photo-upload ng-switch-when="create"></photo-upload>
-
-    <!--view all photos-->
-    <div class="row" ng-switch-when="view">
-        <div class="row" ng-repeat="moment in moments">
-            <div class="col-xs-12 col-sm-6 col-lg-4" ng-repeat="photo in moment.photos">
-                <div class="thumbnail storyContainer">
-                    <a class="example-image-link" href="{{photo.imageLocation}}" data-lightbox="photos" data-title="{{photo.imageCaption}}">
-                        <img style="width:100%;" src="{{photo.imageLocation}}" alt="...">
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
+    <photos-roll-view> ng-switch-when="view"</photos-roll-view>
 </div>
