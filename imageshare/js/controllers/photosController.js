@@ -104,30 +104,32 @@ angular.module('imageshare').controller('photosController', ['$rootScope','$scop
         data.append('albumId', $scope.momentSelection);
         data.append('fileToUpload[]',$scope.file);
 
-        var photo = {
-            caption: $scope.photoCaption,
-            description: $scope.photoDescription,
-            location: $scope.photoLocation,
-            fileName: $scope.file.name
-        };
+        console.log(data);
 
-        var config = {
-            transformRequest:angular.identity,
-            headers: {
-                'Content-Type': undefined
-            }
-        };
-        $http.post('http://imageshare.io/api/v1/uploadimage.php',data,config).success(function (data) {
-            if (data.error) {
-                console.log("Photo: " + data.message);
-            } else {
-                // photo.imageId = getPhotoID($scope.momentSelection,$scope.file.name);
-                updatePhotoInformation($scope.momentSelection,photo);
-                console.log("Successfully uploaded!");
-            }
-        }).error(function () {
-
-        });
+        // var photo = {
+        //     caption: $scope.photoCaption,
+        //     description: $scope.photoDescription,
+        //     location: $scope.photoLocation,
+        //     fileName: $scope.file.name
+        // };
+        //
+        // var config = {
+        //     transformRequest:angular.identity,
+        //     headers: {
+        //         'Content-Type': undefined
+        //     }
+        // };
+        // $http.post('http://imageshare.io/api/v1/uploadimage.php',data,config).success(function (data) {
+        //     if (data.error) {
+        //         console.log("Photo: " + data.message);
+        //     } else {
+        //         // photo.imageId = getPhotoID($scope.momentSelection,$scope.file.name);
+        //         updatePhotoInformation($scope.momentSelection,photo);
+        //         console.log("Successfully uploaded!");
+        //     }
+        // }).error(function () {
+        //
+        // });
     };
 
     var updatePhotoInformation = function(albumId,photo){
