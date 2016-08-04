@@ -101,7 +101,6 @@ angular.module('imageshare').controller('momentsController', ['$rootScope','$sco
     };
 
     var loadMoments = function() {
-        console.log("Loading moments");
         var data = $.param({
             userId: $rootScope.uid,
         });

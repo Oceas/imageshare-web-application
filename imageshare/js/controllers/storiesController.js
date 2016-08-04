@@ -30,7 +30,6 @@ angular.module('imageshare').controller('storiesController', ['$rootScope','$sco
     };
 
     var loadStories = function() {
-        console.log("Loading stories");
         var data = $.param({
             userId: $rootScope.uid,
         });
@@ -46,11 +45,6 @@ angular.module('imageshare').controller('storiesController', ['$rootScope','$sco
                     alert("Stories: " + data.message);
                 } else {
                     $scope.stories = data.stories;
-                    console.log($scope.stories.length);
-                    for (var story in $scope.stories){
-                        console.log("Hello");
-                        // loadMoments(story)
-                    }
                     $scope.stories.forEach(loadMoments);
                 }
             })
@@ -61,7 +55,6 @@ angular.module('imageshare').controller('storiesController', ['$rootScope','$sco
 
 
     var loadMoments = function(story, index) {
-        console.log("Loading");
         var data = $.param({
             userId: $rootScope.uid,
             storyId: story.storyId
@@ -77,9 +70,7 @@ angular.module('imageshare').controller('storiesController', ['$rootScope','$sco
                 if (data.error) {
                     alert(data.message);
                 } else {
-                    console.log(data.story.momments);
                     $scope.stories[index].moments = data.story.momments;
-                    // console.log($scope.stories[index].moments);
                 }
             })
             .error(function () {
