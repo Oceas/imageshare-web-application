@@ -3,6 +3,50 @@ angular.module('imageshare').controller('momentsController', ['$rootScope','$sco
 
     $scope.stories = {};
 
+    var momentsToDelete = {};
+
+    $scope.setToBeDeleted = function(moment){
+        if(momentsToDelete[moment]){
+            momentsToDelete[moment] = false;
+        }else{
+            momentsToDelete[moment] = true;
+        }
+    };
+
+    $scope.isToBeDeleted = function(moment){
+        return momentsToDelete[moment] == true;
+    };
+
+    $scope.delete = function(){
+        for(var momentId in momentsToDelete){
+            deleteMoment(momentId);
+        }
+    };
+
+    var deleteMoment = function(albumId){
+        var data = $.param({
+            userId: $rootScope.uid,
+            albumId: albumId
+        });
+
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        };
+        $http.post('http://imageshare.io/api/v1/deletealbum.php', data, config)
+            .success(function (data) {
+                if (data.error) {
+                    console.log("Moments Delete: " + data.message);
+                } else {
+                    console.log("Successfully deleted Album with ID" + albumId);
+                }
+            })
+            .error(function () {
+
+            });
+    };
+    
     var loadStories = function() {
         var data = $.param({
             userId: $rootScope.uid,
