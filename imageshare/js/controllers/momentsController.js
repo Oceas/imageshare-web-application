@@ -46,30 +46,6 @@ angular.module('imageshare').controller('momentsController', ['$rootScope','$sco
 
             });
     };
-    
-    var loadStories = function() {
-        var data = $.param({
-            userId: $rootScope.uid,
-        });
-
-        var config = {
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
-            }
-        };
-        $http.post('http://imageshare.io/api/v1/getstories.php', data, config)
-            .success(function (data) {
-                if (data.error) {
-                    alert("Stories: " + data.message);
-                } else {
-                    $scope.stories = data.stories;
-                }
-            })
-            .error(function () {
-
-            });
-    };
-
 
     $scope.createMoment = function() {
         var data = $.param({
@@ -125,6 +101,7 @@ angular.module('imageshare').controller('momentsController', ['$rootScope','$sco
     };
 
     var loadMoments = function() {
+        console.log("Loading moments");
         var data = $.param({
             userId: $rootScope.uid,
         });
@@ -173,7 +150,6 @@ angular.module('imageshare').controller('momentsController', ['$rootScope','$sco
     };
 
     loadMoments();
-    loadStories();
 
 
 }]);
