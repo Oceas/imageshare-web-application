@@ -84,6 +84,7 @@ angular.module('imageshare').controller('photosController', ['$rootScope','$scop
                 if (data.error) {
                     console.log(data.message);
                 } else {
+                    console.log(data.album.images);
                     $scope.moments[index].photos = data.album.images;
                 }
             })

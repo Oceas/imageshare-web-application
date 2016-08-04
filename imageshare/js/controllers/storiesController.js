@@ -61,11 +61,8 @@ angular.module('imageshare').controller('storiesController', ['$rootScope','$sco
                 if (data.error) {
                     alert("Stories: " + data.message);
                 } else {
-                    console.log(data.stories);
                     $scope.stories = data.stories;
                     $scope.stories.forEach(loadMoments);
-
-                    // $scope.moments.forEach(loadPhotos);
                 }
             })
             .error(function () {
@@ -104,9 +101,6 @@ angular.module('imageshare').controller('storiesController', ['$rootScope','$sco
 
     var loadPhotos = function(storyIndex, moment, momentIndex) {
 
-        console.log("Loading photos for albumID" + moment.albumId + " stored in story index"+ storyIndex + " in moment index" + momentIndex);
-
-        console.log("Loading Photos");
         var data = $.param({
             userId: $rootScope.uid,
             albumId: moment.albumId
