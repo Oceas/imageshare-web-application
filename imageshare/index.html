@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <!-- load angular via CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
@@ -64,14 +65,11 @@
 <!-- define angular controller -->
 <body ng-controller="mainController">
 
-
-
 <navigation-menu></navigation-menu>
 <!-- MAIN CONTENT AND INJECTED VIEWS -->
 <div id="main">
-    <!-- load lightBox -->
-    <link href="frameworks/lightBox/css/lightbox.min.css" rel="stylesheet">
-    <script src="frameworks/lightBox/js/lightbox-plus-jquery.min.js"></script>
+    <!--<link href="frameworks/lightBox/css/lightbox.min.css" rel="stylesheet">-->
+    <!--<script src="frameworks/lightBox/js/lightbox-plus-jquery.min.js"></script>-->
     <div ng-view></div>
 </div>
 </body>
