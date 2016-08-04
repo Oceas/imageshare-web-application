@@ -1,6 +1,49 @@
 angular.module('imageshare').controller('photosController', ['$rootScope','$scope','$http', function ($rootScope, $scope, $http) {
     $scope.moments = {};
 
+    var photosToDelete = {};
+
+    $scope.setToBeDeleted = function(photo){
+        if(photosToDelete[photo]){
+            photosToDelete[photo] = false;
+        }else{
+            photosToDelete[photo] = true;
+        }
+    };
+
+    $scope.isToBeDeleted = function(photo){
+        return photosToDelete[photo] == true;
+    };
+
+    $scope.delete = function(){
+        for(var photoId in photosToDelete){
+            deletePhoto(photoId);
+        }
+    };
+
+    var deletePhoto = function (photoId){
+        var data = $.param({
+            imageId: photoId,
+        });
+
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        };
+        $http.post('http://imageshare.io/api/v1/deleteimage.php', data, config)
+            .success(function (data) {
+                if (data.error) {
+                    console.log("Photos Delete: " + data.message);
+                } else {
+                   console.log("Successfully deleted " + photoId);
+                }
+            })
+            .error(function () {
+
+            });
+    };
+
     var loadMoments = function() {
         var data = $.param({
             userId: $rootScope.uid,
@@ -143,6 +186,8 @@ angular.module('imageshare').controller('photosController', ['$rootScope','$scop
 
 
     };
+
+
 
     loadMoments();
 

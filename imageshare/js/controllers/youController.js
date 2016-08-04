@@ -14,12 +14,10 @@ angular.module('imageshare').controller('youController', ['$scope',function ($sc
     };
 
     $scope.setMode = function(view){
-        console.log("Set mode called for" + view);
         $scope.mode = view;
     };
 
     $scope.isMode = function(view){
-        console.log("Is mode called for" + view);
         return $scope.mode == view;
     };
 

@@ -17,3 +17,11 @@ body{
     color: white !important;
     border: 1px solid grey !important;
 }
+
+.toBeDeleted {
+    background-color: red;
+}
+
+.delete-button, .delete-button:hover{
+    background-color: red;
+}

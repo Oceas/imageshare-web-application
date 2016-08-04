@@ -1,9 +1,13 @@
-<!--view all photos-->
+<div class="jumbotron text-center">
+    <div class="btn-group" role="group">
+        <button ng-show="isMode('delete')" type="button" class="btn btn-default delete-button" ng-click="delete()">Delete</button>
+    </div>
+</div>
 <div class="row" >
     <div class="row" ng-repeat="moment in moments">
         <div class="col-xs-12 col-sm-6 col-lg-4" ng-repeat="photo in moment.photos">
-            <div class="thumbnail storyContainer">
-                <a class="example-image-link" href="{{photo.imageLocation}}" data-lightbox="photos" data-title="{{photo.imageCaption}}">
+            <div class="thumbnail storyContainer" ng-class="{'toBeDeleted': isToBeDeleted(photo.imageId)}">
+                <a class="example-image-link" ng-click="setToBeDeleted(photo.imageId)">
                     <img style="width:100%;" src="{{photo.imageLocation}}" alt="...">
                 </a>
             </div>
