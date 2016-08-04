@@ -1,16 +1,15 @@
 <div class="jumbotron text-center">
+    <h1>Deleting Photos</h1>
     <div class="btn-group" role="group">
         <button ng-show="isMode('delete')" type="button" class="btn btn-default delete-button" ng-click="delete()">Delete</button>
     </div>
 </div>
 <div class="row">
     <div class="col-sm-6 col-md-6 " ng-repeat="moment in moments">
-        <div class="thumbnail storyContainer" ng-class="{'toBeDeleted': isToBeDeleted(moment.albumId)}">
+        <div class="thumbnail storyContainer" ng-class="{'toBeDeleted': isToBeDeleted(moment.albumId)}" ng-click="setToBeDeleted(moment.albumId)">
             <h3 class="text-center">{{moment.albumName}}</h3>
             <p class="text-center">{{moment.albumDesc}}</p>
-            <a class="example-image-link" ng-click="setToBeDeleted(moment.albumId)">
-                <img style="width:100%;" src="{{moment.images[0].imageLocation}}" alt="...">
-            </a>
+            <img style="width:100%;" src="{{moment.images[0].imageLocation}}" alt="...">
         </div>
     </div>
 </div>
