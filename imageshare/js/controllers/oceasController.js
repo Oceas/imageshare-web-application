@@ -5,7 +5,7 @@ angular.module('imageshare').controller('oceasController', ['$rootScope','$scope
 
     var loadStories = function() {
         var data = $.param({
-            userId: "3",
+            userId: "8",
         });
 
         var config = {
@@ -30,7 +30,7 @@ angular.module('imageshare').controller('oceasController', ['$rootScope','$scope
 
     var loadMoments = function(story, index) {
         var data = $.param({
-            userId: "3",
+            userId: "8",
             storyId: story.storyId
         });
     
@@ -59,7 +59,7 @@ angular.module('imageshare').controller('oceasController', ['$rootScope','$scope
     var loadPhotos = function(storyIndex, moment, momentIndex) {
 
         var data = $.param({
-            userId: "3",
+            userId: "8",
             albumId: moment.albumId
         });
 

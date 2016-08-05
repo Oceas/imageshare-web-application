@@ -58,6 +58,7 @@ angular.module('imageshare').controller('createPhotosController', ['$rootScope',
                 // photo.imageId = getPhotoID($scope.momentSelection,$scope.file.name);
                 updatePhotoInformation($scope.momentSelection,photo);
                 console.log("Successfully uploaded!");
+                alert("Successfully uploaded!");
             }
         }).error(function () {
 
