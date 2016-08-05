@@ -26,7 +26,9 @@
                             <h3>{{photo.imageCaption}}</h3>
                             <p>{{photo.imageDesc}}</p>
                             <p ng-show="photo.location">Location: {{photo.location}}</p>
-                            <img style="width:100%;" src="{{photo.imageLocation}}">
+                            <a href="{{photo.imageLocation}}" data-lightbox="{{moment.albumName}}" data-title="{{photo.imageCaption}}">
+                                <img style="width:100%;" src="{{photo.imageLocation}}">
+                            </a>
                         </div>
                     </div>
                 </div>
