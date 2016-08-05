@@ -4,6 +4,34 @@ angular.module('imageshare').controller('storiesController', ['$rootScope','$sco
 
     var storiesToDelete = {};
 
+    $scope.editStoryInformation = function(story){
+
+        var data = $.param({
+            userId: $rootScope.uid,
+            storyName: story.storyName,
+            storyDesc: story.storyDesc,
+            location: story.location,
+            storyId: story.storyId
+        });
+
+        var config = {
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded;charset=utf-8;'
+            }
+        };
+        $http.post('http://imageshare.io/api/v1/editstory.php', data, config)
+            .success(function (data) {
+                if (data.error) {
+                    alert("Stories Edit: " + data.message);
+                } else {
+                    console.log("Successfully updated story with ID: " + story.storyId);
+                }
+            })
+            .error(function () {
+
+            });
+    };
+
     $scope.setToBeDeleted = function(story){
         if(storiesToDelete[story]){
             storiesToDelete[story] = false;
