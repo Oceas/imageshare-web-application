@@ -82,7 +82,7 @@ angular.module('imageshare').controller('momentsController', ['$rootScope','$sco
             userId: $rootScope.uid,
             albumName: moment.albumName,
             albumDesc: moment.albumDesc,
-            location: moment.location,
+            location: moment.albumLocation,
             albumId: moment.albumId
         });
 
