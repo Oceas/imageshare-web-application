@@ -10,7 +10,7 @@
     
     imageshare.run(['$rootScope', '$location', 'loggedIn', function ($rootScope, $location, loggedIn) {
         $rootScope.$on('$routeChangeStart', function () {
-            if ($location.$$path !== "/login" && $location.$$path !== "/" && $location.$$path !== "/logout" && $location.$$path !== "/register") {
+            if ($location.$$path !== "/login" && $location.$$path !== "/" && $location.$$path !== "/logout" && $location.$$path !== "/register" && $location.$$path !== "/oceas") {
                 if (loggedIn()) {
                     //Let the route complete
                 } else {

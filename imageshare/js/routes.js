@@ -33,6 +33,11 @@ angular.module('imageshare').config(function ($routeProvider) {
         .when('/account-information', {
             templateUrl: '../../partials/pages/user/information.html',
             controller: 'accountController'
+        })
+
+        .when('/oceas', {
+            templateUrl: '../../partials/pages/oceas.html',
+            controller: 'oceasController'
         });
 
 });
