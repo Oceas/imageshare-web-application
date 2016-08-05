@@ -7,7 +7,7 @@ angular.module('imageshare').controller('createMomentsController', ['$rootScope'
     $scope.createMoment = function() {
         var data = $.param({
             userId: $rootScope.uid,
-            albumName: $rootScope.albumName,
+            albumName: $scope.albumName,
             albumDesc: $scope.albumDesc,
             location: $scope.location
         });
