@@ -1,0 +1,18 @@
+<div class="jumbotron text-center">
+    <h1>Create a Story</h1>
+    <form name="createStoryForm" ng-submit="createStoryForm.$valid && createStory()" novalidate>
+        <div class="form-group">
+            <label for="storyName">Story Name</label>
+            <input ng-model="storyName" type="text" class="form-control" id="storyName" placeholder="Vancouver 2016" required>
+        </div>
+        <div class="form-group">
+            <label for="storyDesc">Story Description</label>
+            <input ng-model="storyDesc" type="text" class="form-control" id="storyDesc" placeholder="Trip to Vancouver BC" required>
+        </div>
+        <div class="form-group">
+            <label for="location">Story Location</label>
+            <input ng-model="location" type="text" class="form-control" id="location" placeholder="Vancouver, BC" required>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>

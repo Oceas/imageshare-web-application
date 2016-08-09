@@ -8,18 +8,62 @@
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css"/>
     <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.css"/>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <!-- load angular via CDN -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-route.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.25/angular-cookies.js"></script>
 
+
     <!-- load  custom modules -->
-    <script src="modules/app.js"></script>
-    <script src="modules/authentication.js"></script>
+    <script src="js/modules/app.js"></script>
+    <script src="js/modules/authentication.js"></script>
+
+    <!-- load custom controllers -->
+    <script src="js/controllers/logInController.js"></script>
+    <script src="js/controllers/logOutController.js"></script>
+    <script src="js/controllers/registrationController.js"></script>
+    <script src="js/controllers/mainController.js"></script>
+    <script src="js/controllers/navigationController.js"></script>
+    <script src="js/controllers/momentsController.js"></script>
+    <script src="js/controllers/createMomentsController.js"></script>
+    <script src="js/controllers/youController.js"></script>
+    <script src="js/controllers/accountcontroller.js"></script>
+    <script src="js/controllers/createPhotosController.js"></script>
+    <script src="js/controllers/photosController.js"></script>
+    <script src="js/controllers/storiesController.js"></script>
+    <script src="js/controllers/createStoriesController.js"></script>
+    <script src="js/controllers/oceasController.js"></script>
+
+    <!-- load custom directives -->
+    <script src="js/directives/navigationMenu.js"></script>
+    <script src="js/directives/momentsRoll.js"></script>
+    <script src="js/directives/photosRoll.js"></script>
+    <script src="js/directives/storiesRoll.js"></script>
+    <script src="js/directives/photoCreate.js"></script>
+    <script src="js/directives/photoEdit.js"></script>
+    <script src="js/directives/photosDelete.js"></script>
+    <script src="js/directives/photosRollView.js"></script>
+    <script src="js/directives/storyCreate.js"></script>
+    <script src="js/directives/storyEdit.js"></script>
+    <script src="js/directives/storyDelete.js"></script>
+    <script src="js/directives/storyRollView.js"></script>
+    <script src="js/directives/momentCreate.js"></script>
+    <script src="js/directives/momentEdit.js"></script>
+    <script src="js/directives/momentDelete.js"></script>
+    <script src="js/directives/momentRollView.js"></script>
+    <script src="js/directives/oceasRollView.js"></script>
+
+    <!-- load extra dependencies -->
+    <script src="js/routes.js"></script>
+
 
     <!-- load custom css -->
     <link rel="stylesheet" type="text/css" href="css/style.css"/>
+
+
+
 
 </head>
 
@@ -29,6 +73,8 @@
 <navigation-menu></navigation-menu>
 <!-- MAIN CONTENT AND INJECTED VIEWS -->
 <div id="main">
+    <link href="frameworks/lightBox/css/lightbox.min.css" rel="stylesheet">
+    <script src="frameworks/lightBox/js/lightbox-plus-jquery.min.js"></script>
     <div ng-view></div>
 </div>
 </body>

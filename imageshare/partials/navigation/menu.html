@@ -1,14 +1,16 @@
 <header>
-    <nav class="navbar navbar-default">
+    <nav class="navbar navbar-default navbar-inverse">
         <div class="container">
             <div class="navbar-header">
-                <a class="navbar-brand" href="/">Imageshare</a>
+                <a class="navbar-brand" href="#">Imageshare</a>
             </div>
+            <ul class="nav navbar-nav navbar-left">
+                <li  ng-hide="loggedOut"><a href="#you"> {{username}}</a></li>
+            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#"><i class="fa fa-home"></i> Home</a></li>
-                <li ng-hide="loggedIn"><a href="#login"><i class="fa fa-sign-in"></i> Login</a></li>
-                <li ng-hide="loggedIn"><a href="#register"><i class="fa fa-magic"></i> Register</a></li>
-                <li ng-hide="loggedOut"><a href="#logout"><i class="fa fa-sign-out" ></i> Logout</a></li>
+                <li ng-hide="loggedIn"><a href="#login"> Login</a></li>
+                <li ng-hide="loggedIn"><a href="#register"> Register</a></li>
+                <li ng-hide="loggedOut"><a href="#logout"> Logout</a></li>
             </ul>
         </div>
     </nav>

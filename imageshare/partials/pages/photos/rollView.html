@@ -1,0 +1,14 @@
+<!--view all photos-->
+<div class="row" >
+    <div class="row" ng-repeat="moment in moments">
+        <div class="col-xs-12 col-sm-6 col-lg-4" ng-repeat="photo in moment.photos">
+            <div class="thumbnail storyContainer">
+                <h3 class="text-center">{{photo.imageCaption}}</h3>
+                <a href="{{photo.imageLocation}}" data-lightbox="photos" data-title="{{photo.imageCaption}}">
+                    <img style="width:100%;" src="{{photo.imageLocation}}" alt="...">
+                </a>
+                <p class="text-center">{{photo.imageDesc}}</p>
+            </div>
+        </div>
+    </div>
+</div>

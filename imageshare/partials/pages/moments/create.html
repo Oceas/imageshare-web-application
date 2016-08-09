@@ -1,0 +1,25 @@
+<div class="jumbotron text-center">
+    <h1>Create a Moment</h1>
+    <form name="creatMomentForm" ng-submit="creatMomentForm.$valid && createMoment()" novalidate>
+        <div class="form-group">
+            <label for="storySelection">Upload to This Story</label>
+            <select class="form-control" name="singleSelect" id="storySelection" ng-model="storySelection">
+                <option value="">---Please select---</option> <!-- not selected / blank option -->
+                <option ng-repeat="story in stories" value="{{story.storyId}}">{{story.storyName}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="albumName">Moment Name</label>
+            <input ng-model="albumName" type="text" class="form-control" id="albumName" placeholder="UBC Ecology Museum" required>
+        </div>
+        <div class="form-group">
+            <label for="albumDesc">Moment Description</label>
+            <input ng-model="albumDesc" type="text" class="form-control" id="albumDesc" placeholder="University of British Columbia Ecology Museum Day" required>
+        </div>
+        <div class="form-group">
+            <label for="location">Moment Location</label>
+            <input ng-model="location" type="text" class="form-control" id="location" placeholder="UBC Vancouver, BC" required>
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
+</div>

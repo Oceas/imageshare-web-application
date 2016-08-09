@@ -1,0 +1,17 @@
+<div class="jumbotron text-center">
+    <h1>Deleting Photos</h1>
+    <div class="btn-group" role="group">
+        <button ng-show="isMode('delete')" type="button" class="btn btn-default delete-button" ng-click="delete()">Delete</button>
+    </div>
+</div>
+<div class="row" >
+    <div class="row" ng-repeat="moment in moments">
+        <div class="col-xs-12 col-sm-6 col-lg-4" ng-repeat="photo in moment.photos">
+            <div class="thumbnail storyContainer" ng-class="{'toBeDeleted': isToBeDeleted(photo.imageId)}" ng-click="setToBeDeleted(photo.imageId)">
+                <h3 class="text-center">{{photo.imageCaption}}</h3>
+                <img style="width:100%;" src="{{photo.imageLocation}}" alt="...">
+                <p class="text-center">{{photo.imageDesc}}</p>
+            </div>
+        </div>
+    </div>
+</div>

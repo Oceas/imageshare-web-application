@@ -1,0 +1,41 @@
+<div class="row">
+    <div class="col-sm-6 col-md-6 " ng-repeat="story in stories" data-toggle="modal" data-target="#myModal{{story.storyId}}">
+        <div class="thumbnail storyContainer">
+            <h3 class="text-center">{{story.storyName}}</h3>
+            <p class="text-center">{{story.storyDesc}}</p>
+            <img style="width:100%;" src="{{story.moments[0].images[0].imageLocation}}" alt="...">
+        </div>
+    </div>
+</div>
+<div class="col-sm-6 col-md-6 text-center" ng-repeat="story in stories">
+    <div class="modal fade" id="myModal{{story.storyId}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h1 class="modal-title" id="myModalLabel">{{story.storyName}}</h1>
+                </div>
+                <div class="modal-body">
+                    <i><p>{{story.storyDesc}}</p></i>
+                    <p>Location: {{story.location}}</p>
+                    <div ng-repeat="moment in story.moments">
+                        <u><h2 class="underline">{{moment.albumName}}</h2></u>
+                        <p>{{moment.albumDesc}}</p>
+                        <p>Location: {{moment.albumLocation}}</p>
+                        <div ng-repeat="photo in moment.images">
+                            <h3>{{photo.imageCaption}}</h3>
+                            <p>{{photo.imageDesc}}</p>
+                            <p ng-show="photo.location">Location: {{photo.location}}</p>
+                            <a href="{{photo.imageLocation}}" data-lightbox="{{moment.albumName}}" data-title="{{photo.imageCaption}}">
+                                <img style="width:100%;" src="{{photo.imageLocation}}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
